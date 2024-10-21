@@ -22,7 +22,7 @@ const PostsGrid = ({ data }: PostGridProps) => {
       <div className="flex-col justify-start items-center gap-8 flex">
         <div className="self-stretch justify-start items-center gap-8 inline-flex">
           <div className="grow shrink basis-0 text-[#181a2a] text-2xl font-bold font-['Work Sans'] leading-7">
-            Latest Post
+            Latest Posts
           </div>
         </div>
         <div className="flex-col justify-start items-start gap-5 flex">
@@ -33,31 +33,15 @@ const PostsGrid = ({ data }: PostGridProps) => {
                 title={post.title}
                 id={post.id}
                 excerpt={post.body.substring(0, 100) + "..."}
+                userName={post.userName}
               />
             ))}
           </div>
         </div>
-        {/* <div className="flex-col justify-start items-start gap-5 flex">
-          <div className="justify-start items-start gap-5 inline-flex">
-            <PostCard title="Hey" id={1} excerpt={"Aress"} />
-            <PostCard title="Hey" id={2} excerpt={"Aress"} />
-            <PostCard title="Hey" id={3} excerpt={"Aress"} />
-          </div>
-          <div className="justify-start items-start gap-5 inline-flex">
-            <PostCard title="Hey" id={4} excerpt={"Aress"} />
-            <PostCard title="Hey" id={5} excerpt={"Aress"} />
-            <PostCard title="Hey" id={6} excerpt={"Aress"} />
-          </div>
-          <div className="justify-start items-start gap-5 inline-flex">
-            <PostCard title="Hey" id={7} excerpt={"Aress"} />
-            <PostCard title="Hey" id={8} excerpt={"Aress"} />
-            <PostCard title="Hey" id={9} excerpt={"Aress"} />
-          </div>
-        </div> */}
-        <div className="px-5 py-3 rounded-md border border-[#696a75]/30 justify-center items-center gap-3 inline-flex">
-          <div className="text-[#696a75] text-base font-medium font-['Work Sans'] leading-normal">
-            View All Post
-          </div>
+        <div className="px-5 py-3 rounded-md border border-[#696a75]/30 justify-center items-center gap-3 inline-flex hover:bg-red-100 hover:text-white active:bg-red-300">
+          <button className="text-[#696a75] text-base font-medium font-['Work Sans'] leading-normal ">
+            View All Posts
+          </button>
         </div>
       </div>
     </div>

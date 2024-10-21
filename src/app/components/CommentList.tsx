@@ -1,11 +1,4 @@
-// components/CommentList.tsx
-
-interface Comment {
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-}
+import { Comment } from "../interfaces/Comment.interface";
 
 interface CommentListProps {
   comments: Comment[];

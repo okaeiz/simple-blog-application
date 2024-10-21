@@ -18,11 +18,10 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// Load Work Sans font from Google Fonts
 const workSans = Work_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
-  variable: "--font-work-sans", // Optional: Using a CSS variable to apply this font
+  variable: "--font-work-sans",
 });
 
 export default function RootLayout({
@@ -30,7 +29,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Initialize QueryClient for React Query
   const [queryClient] = useState(() => new QueryClient());
 
   return (

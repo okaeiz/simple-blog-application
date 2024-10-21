@@ -13,6 +13,7 @@ const Home = () => {
 
   if (isLoading)
     return <div className="text-center text-xl py-10">Loading...</div>;
+
   if (error)
     return (
       <div className="text-center text-red-500 text-xl py-10">
@@ -22,13 +23,16 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-[1920px] h-[3472px] bg-white flex-col justify-center items-center inline-flex">
+      <div className="w-[1920px] h-[3472px] bg-white dark:bg-[#171717] flex-col justify-center items-center inline-flex">
         <div className="self-stretch flex-col justify-start items-start gap-6 inline-flex">
           <Navbar />
           <div className="flex-col justify-start items-center gap-[100px] flex">
             <div className="flex-col justify-start items-center gap-20 flex">
               <div className="w-[1216px] h-[664px] relative">
-                <div className="w-[1216px] h-[600px] left-0 top-0 absolute bg-[#141624]/40 rounded-xl" />
+                <img
+                  className="w-[1216px] h-[600px] left-0 top-0 absolute bg-[#141624]/40 rounded-xl"
+                  src="https://wallpapers.com/images/hd/1080p-nature-background-c5s8tp0d4p9u3mr3.jpg"
+                />
                 <HomePageExcerpt />
               </div>
               <PostsGrid data={data} />

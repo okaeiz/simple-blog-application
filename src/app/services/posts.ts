@@ -1,20 +1,36 @@
-// services/posts.ts
+import axios from "axios";
+import { Post, User } from "../interfaces/Post.interface";
+import { Comment } from "../interfaces/Comment.interface";
 
-import axios from 'axios';
+const BASE_URL = "https://jsonplaceholder.typicode.com";
 
-const BASE_URL = 'https://jsonplaceholder.typicode.com';
+type UserMap = Record<number, string>;
 
-export const fetchPosts = async () => {
-  const { data } = await axios.get(`${BASE_URL}/posts`);
-  return data.slice(0, 10); // Limit to 10 posts
+export const fetchPosts = async (): Promise<Post[]> => {
+  const { data: posts } = await axios.get<Post[]>(`${BASE_URL}/posts`);
+  const { data: users } = await axios.get<User[]>(`${BASE_URL}/users`);
+
+  const userMap: UserMap = {};
+  users.forEach((user) => {
+    userMap[user.id] = user.name;
+  });
+
+  const postsWithUserNames = posts.slice(0, 10).map((post) => ({
+    ...post,
+    userName: userMap[post.userId],
+  }));
+
+  return postsWithUserNames;
 };
 
-export const fetchPostDetails = async (id: string) => {
-  const { data } = await axios.get(`${BASE_URL}/posts/${id}`);
+export const fetchPostDetails = async (id: string): Promise<Post> => {
+  const { data } = await axios.get<Post>(`${BASE_URL}/posts/${id}`);
   return data;
 };
 
-export const fetchComments = async (postId: string) => {
-  const { data } = await axios.get(`${BASE_URL}/posts/${postId}/comments`);
-  return data;
+export const fetchComments = async (postId: string): Promise<Comment[]> => {
+  const response = await axios.get<Comment[]>(
+    `${BASE_URL}/posts/${postId}/comments`
+  );
+  return response.data;
 };
