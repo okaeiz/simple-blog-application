@@ -1,3 +1,5 @@
+import { Post } from "./Post.interface";
+
 export interface PostGridProps {
-    data: any;
-  }
+  data: Post[] | undefined;
+}
