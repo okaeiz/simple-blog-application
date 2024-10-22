@@ -8,8 +8,14 @@ import HomePageExcerpt from "../components/HomePageExcerpt";
 import Footer from "../components/Footer";
 import { Post } from "../interfaces/Post.interface";
 
-const Home = () => {
-  const { data, error, isLoading } = useQuery<Post[]>("posts", fetchPosts);
+interface HomeProps {
+  initialData: Post[];
+}
+
+const Home = ({ initialData }: HomeProps) => {
+  const { data, error, isLoading } = useQuery<Post[]>("posts", fetchPosts, {
+    initialData,
+  });
 
   if (isLoading)
     return <div className="text-center text-xl py-10">Loading...</div>;
@@ -59,5 +65,15 @@ const Home = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const posts = await fetchPosts();
+
+  return {
+    props: {
+      initialData: posts,
+    },
+  };
+}
 
 export default Home;

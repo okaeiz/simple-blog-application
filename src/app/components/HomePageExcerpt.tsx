@@ -18,7 +18,7 @@ const HomePageExcerpt = () => {
         <div className="justify-start items-center gap-3 flex">
           <img
             className="w-9 h-9 rounded-[28px]"
-            src="https://via.placeholder.com/36x36"
+            src="https://avatars.githubusercontent.com/u/100111649?s=400&u=fb67cf89f6221d6601e768cca178a7ee057aba76&v=4"
           />
           <div className="text-[#97989f] text-base font-medium font-['Work Sans'] leading-normal">
             Hossein Karbalaei
