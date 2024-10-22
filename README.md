@@ -62,3 +62,5 @@ To build and run the app in production mode:
 npm run build
 npm start
 ```
+
+The project is hosted on Vercel and the address is available on the repository description.

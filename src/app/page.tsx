@@ -9,7 +9,7 @@ const Page = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Home />
+      <Home initialData={[]} />
     </QueryClientProvider>
   );
 };
